@@ -117,16 +117,14 @@ main() {
 	setw window-status-separator ""
 	setw window-status-style "${none},fg=${fg_sidebar},bg=${bg_statusline}"
 
-	window_icon="#{?#{==:#{pane_current_command},ssh},󰣀,}"
-	window_icon_current="#{?#{==:#{pane_current_command},ssh},󰣀,}"
+	window_icon="#{?window_last_flag,#[fg=${yellow}]󰁯#[fg=${fg_sidebar}],}"
+	window_icon_current="#[fg=${green}]#[fg=${blue}]"
 	window_number="#($SCRIPTS_PATH/custom-number.sh #I hsquare)"
 	window_text="#{b:pane_current_path}"
 	pane_number="#($SCRIPTS_PATH/custom-number.sh #P dsquare)"
-	window_flag="#{?window_last_flag,󰁯, }"
-	window_flag_current="#{?window_last_flag, , }"
 
-	setw window-status-format "#[default] $window_icon $window_number $window_text $pane_number #[fg=${yellow}]$window_flag "
-	setw window-status-current-format "#[fg=${green},bg=${fg_gutter},bold] $window_icon_current #[fg=${blue}]$window_number $window_text $pane_number $window_flag_current "
+	setw window-status-format "#[default] $window_icon $window_number $window_text $pane_number  "
+	setw window-status-current-format "#[fg=${blue},bg=${fg_gutter},bold] $window_icon_current $window_number $window_text $pane_number  "
 
 	# Call everything to action
 	tmux "${tmux_commands[@]}"
