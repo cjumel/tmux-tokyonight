@@ -4,6 +4,7 @@
 # Plugin structure is inspired by https://github.com/rose-pine/tmux
 
 export CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export SCRIPTS_PATH="$CURRENT_DIR/scripts"
 
 get_tmux_option() {
 	local option value default
@@ -80,6 +81,9 @@ main() {
 
 	none="NONE"
 
+	window_number_style="hsquare"
+	window_number="#($SCRIPTS_PATH/custom-number.sh #I $window_number_style)"
+
 	# Aggregating all commands into a single array
 	local tmux_commands=()
 
@@ -110,8 +114,8 @@ main() {
 	setw window-status-activity-style "underscore,fg=${fg_sidebar},bg=${bg_statusline}"
 	setw window-status-separator ""
 	setw window-status-style "${none},fg=${fg_sidebar},bg=${bg_statusline}"
-	setw window-status-format "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[default] #I  #{b:pane_current_path} #F #[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]"
-	setw window-status-current-format "#[fg=${bg_statusline},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter},bold] #I  #{b:pane_current_path} #F #[fg=${fg_gutter},bg=${bg_statusline},nobold,nounderscore,noitalics]"
+	setw window-status-format "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[default] $window_number  #{b:pane_current_path} #F #[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]"
+	setw window-status-current-format "#[fg=${bg_statusline},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter},bold] $window_number  #{b:pane_current_path} #F #[fg=${fg_gutter},bg=${bg_statusline},nobold,nounderscore,noitalics]"
 
 	# Call everything to action
 	tmux "${tmux_commands[@]}"
