@@ -111,7 +111,7 @@ main() {
 	set status-right-style ${none}
 
 	set status-left "#[fg=${black},bg=${blue},bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }#[bold,nodim]#S "
-	set status-right "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[fg=${blue},bg=${bg_statusline}] #{prefix_highlight} #[fg=${fg_gutter},bg=${bg_statusline},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter}] #W  #h #[fg=${blue},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${black},bg=${blue},bold] %H:%M "
+	set status-right "#[fg=${blue},bg=${fg_gutter}]  #W 󰒋 #h #[fg=${black},bg=${blue},bold] 󰃰 %H:%M "
 
 	setw window-status-activity-style "underscore,fg=${fg_sidebar},bg=${bg_statusline}"
 	setw window-status-separator ""

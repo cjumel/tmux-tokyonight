@@ -10,7 +10,8 @@ This plugin borrows some code from:
   structure and utilities
 - the [tokyonight.nvim Neovim theme](https://github.com/folke/tokyonight.nvim) for the colors and
   the initial status line structure
-- the [tokyo-night-tmux Tmux plugin](https://github.com/janoamaral/tokyo-night-tmux) for additional
+- the [Catppuccin Tmux plugin](https://github.com/catppuccin/tmux)
+  [tokyo-night-tmux Tmux plugin](https://github.com/janoamaral/tokyo-night-tmux) for additional
   customization
 
 ## Usage
