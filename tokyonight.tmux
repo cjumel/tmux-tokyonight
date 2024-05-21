@@ -41,11 +41,13 @@ main() {
 	local theme
 	theme="$(get_tmux_option "@tokyonight_theme" "night")"
 
+	# Colors can be seen in https://github.com/folke/tokyonight.nvim/tree/main/extras/lua
 	if [[ $theme == night ]]; then
 
 		blue="#7aa2f7"
 		black="#15161e"
 		yellow="#e0af68"
+		green="#9ece6a"
 		fg_gutter="#3b4261"
 		fg_sidebar="#a9b1d6"
 		bg_statusline="#16161e"
@@ -55,6 +57,7 @@ main() {
 		blue="#82aaff"
 		black="#1b1d2b"
 		yellow="#ffc777"
+		green="#c3e88d"
 		fg_gutter="#3b4261"
 		fg_sidebar="#828bb8"
 		bg_statusline="#1e2030"
@@ -64,6 +67,7 @@ main() {
 		blue="#7aa2f7"
 		black="#1d202f"
 		yellow="#e0af68"
+		green="#9ece6a"
 		fg_gutter="#3b4261"
 		fg_sidebar="#a9b1d6"
 		bg_statusline="#1f2335"
@@ -73,6 +77,7 @@ main() {
 		blue="#2e7de9"
 		black="#e9e9ed"
 		yellow="#8c6c3e"
+		green="#587539"
 		fg_gutter="#a8aecb"
 		fg_sidebar="#6172b0"
 		bg_statusline="#e9e9ec"
@@ -80,9 +85,6 @@ main() {
 	fi
 
 	none="NONE"
-
-	window_number_style="hsquare"
-	window_number="#($SCRIPTS_PATH/custom-number.sh #I $window_number_style)"
 
 	# Aggregating all commands into a single array
 	local tmux_commands=()
@@ -108,14 +110,23 @@ main() {
 	set status-left-style ${none}
 	set status-right-style ${none}
 
-	set status-left "#[fg=${black},bg=${blue},bold] #S #[fg=${blue},bg=${bg_statusline},nobold,nounderscore,noitalics]"
+	set status-left "#[fg=${black},bg=${blue},bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }#[bold,nodim]#S "
 	set status-right "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[fg=${blue},bg=${bg_statusline}] #{prefix_highlight} #[fg=${fg_gutter},bg=${bg_statusline},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter}] #W  #h #[fg=${blue},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${black},bg=${blue},bold] %H:%M "
 
 	setw window-status-activity-style "underscore,fg=${fg_sidebar},bg=${bg_statusline}"
 	setw window-status-separator ""
 	setw window-status-style "${none},fg=${fg_sidebar},bg=${bg_statusline}"
-	setw window-status-format "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[default] $window_number  #{b:pane_current_path} #F #[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]"
-	setw window-status-current-format "#[fg=${bg_statusline},bg=${fg_gutter},nobold,nounderscore,noitalics]#[fg=${blue},bg=${fg_gutter},bold] $window_number  #{b:pane_current_path} #F #[fg=${fg_gutter},bg=${bg_statusline},nobold,nounderscore,noitalics]"
+
+	window_icon="#{?#{==:#{pane_current_command},ssh},󰣀,}"
+	window_icon_current="#{?#{==:#{pane_current_command},ssh},󰣀,}"
+	window_number="#($SCRIPTS_PATH/custom-number.sh #I hsquare)"
+	window_text="#{b:pane_current_path}"
+	pane_number="#($SCRIPTS_PATH/custom-number.sh #P dsquare)"
+	window_flag="#{?window_last_flag,󰁯, }"
+	window_flag_current="#{?window_last_flag, , }"
+
+	setw window-status-format "#[default] $window_icon $window_number $window_text $pane_number #[fg=${yellow}]$window_flag "
+	setw window-status-current-format "#[fg=${green},bg=${fg_gutter},bold] $window_icon_current #[fg=${blue}]$window_number $window_text $pane_number $window_flag_current "
 
 	# Call everything to action
 	tmux "${tmux_commands[@]}"
