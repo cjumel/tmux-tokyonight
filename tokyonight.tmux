@@ -75,12 +75,12 @@ main() {
 	elif [[ $theme == day ]]; then
 
 		blue="#2e7de9"
-		black="#e9e9ed"
+		black="#b4b5b9",
 		yellow="#8c6c3e"
 		green="#587539"
 		fg_gutter="#a8aecb"
 		fg_sidebar="#6172b0"
-		bg_statusline="#e9e9ec"
+		bg_statusline="#d0d5e3",
 
 	fi
 
