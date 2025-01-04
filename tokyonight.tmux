@@ -47,7 +47,6 @@ main() {
     blue="#7aa2f7"
     black="#15161e"
     yellow="#e0af68"
-    green="#9ece6a"
     fg_gutter="#3b4261"
     fg_sidebar="#a9b1d6"
     bg_statusline="#16161e"
@@ -57,7 +56,6 @@ main() {
     blue="#82aaff"
     black="#1b1d2b"
     yellow="#ffc777"
-    green="#c3e88d"
     fg_gutter="#3b4261"
     fg_sidebar="#828bb8"
     bg_statusline="#1e2030"
@@ -67,7 +65,6 @@ main() {
     blue="#7aa2f7"
     black="#1d202f"
     yellow="#e0af68"
-    green="#9ece6a"
     fg_gutter="#3b4261"
     fg_sidebar="#a9b1d6"
     bg_statusline="#1f2335"
@@ -77,7 +74,6 @@ main() {
     blue="#2e7de9"
     black="#b4b5b9",
     yellow="#8c6c3e"
-    green="#587539"
     fg_gutter="#a8aecb"
     fg_sidebar="#6172b0"
     bg_statusline="#d0d5e3",
@@ -118,7 +114,7 @@ main() {
   setw window-status-style "${none},fg=${fg_sidebar},bg=${bg_statusline}"
 
   window_icon="#{?window_last_flag,#[fg=${yellow}]󰁯#[fg=${fg_sidebar}],}"
-  window_icon_current="#[fg=${green}]#[fg=${blue}]"
+  window_icon_current="#[fg=${yellow}]#[fg=${blue}]"
   window_number="#($SCRIPTS_PATH/custom-number.sh #I dsquare)"
   window_text="#W"
 
