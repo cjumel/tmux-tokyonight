@@ -119,12 +119,11 @@ main() {
 
   window_icon="#{?window_last_flag,#[fg=${yellow}]󰁯#[fg=${fg_sidebar}],}"
   window_icon_current="#[fg=${green}]#[fg=${blue}]"
-  window_number="#($SCRIPTS_PATH/custom-number.sh #I hsquare)"
+  window_number="#($SCRIPTS_PATH/custom-number.sh #I dsquare)"
   window_text="#W"
-  pane_number="#($SCRIPTS_PATH/custom-number.sh #P dsquare)"
 
-  setw window-status-format "#[default] $window_icon $window_number $window_text $pane_number  "
-  setw window-status-current-format "#[fg=${blue},bg=${fg_gutter},bold] $window_icon_current $window_number $window_text $pane_number  "
+  setw window-status-format "#[default] $window_icon $window_text $window_number  "
+  setw window-status-current-format "#[fg=${blue},bg=${fg_gutter},bold] $window_icon_current $window_text $window_number  "
 
   # Call everything to action
   tmux "${tmux_commands[@]}"
