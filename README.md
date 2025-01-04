@@ -23,7 +23,7 @@ This plugin borrows some code from:
    ```tmux
      set -g @plugin 'clementjumel/tmux-tokyonight'
      set -g @tokyonight_theme 'night' # or 'moon', 'storm', 'day'
-     ... 
+     ...
      set -g @plugin 'tmux-plugins/tpm'
    ```
 
