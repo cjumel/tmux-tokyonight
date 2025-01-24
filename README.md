@@ -1,24 +1,21 @@
-# Tmux-Tokyonight
+# tmux-tokyonight
 
-A simple plugin for Tmux, inspired by the
-[tokyonight.nvim Neovim theme](https://github.com/folke/tokyonight.nvim), which is itself inspired
-by the [Visual Studio Code TokyoNight theme](https://github.com/enkia/tokyo-night-vscode-theme).
+A simple Tmux theme with [TokyoNight colors](https://github.com/enkia/tokyo-night-vscode-theme),
+largely inspired by the
+[tokyo-night-tmux Tmux theme](https://github.com/janoamaral/tokyo-night-tmux) and designed to work
+well with the [tokyonight.nvim Neovim theme](https://github.com/folke/tokyonight.nvim).
 
-This plugin borrows some code from:
-
-- the [rose-pine Tmux plugin](https://github.com/rose-pine/tmux), for the simple mono-file plugin
-  structure and utilities
-- the [tokyonight.nvim Neovim theme](https://github.com/folke/tokyonight.nvim) for the colors and
-  the initial status line structure
-- the [Catppuccin Tmux plugin](https://github.com/catppuccin/tmux)
-  [tokyo-night-tmux Tmux plugin](https://github.com/janoamaral/tokyo-night-tmux) for additional
-  customization
+I developped this plugin because, while I really liked the
+[tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux) theme, I didn't need as much
+features and wanted to have less requirements. Besides, I wanted to support all the styles
+[tokyonight.nvim](https://github.com/folke/tokyonight.nvim) have and add a bit of customization.
 
 ## Usage
 
-1. Install [TPM](https://github.com/tmux-plugins/tpm)
+1. Install [TPM](https://github.com/tmux-plugins/tpm), the Tmux Plugin Manager
 
-2. Add the Tokyonight plugin with the following line in your Tmux configuration file:
+2. Add the tmux-tokyonight plugin in your Tmux configuration file, for instance with the following
+   lines:
 
    ```tmux
      set -g @plugin 'clementjumel/tmux-tokyonight'
@@ -27,6 +24,42 @@ This plugin borrows some code from:
      set -g @plugin 'tmux-plugins/tpm'
    ```
 
-3. To install the plugin when using it for the first time, restart Tmux and use the `prefix + I`
-   (capital I) combination to source your configuration. For updating the plugin, the key
-   combination is `prefix + U` (capital U).
+3. When using the plugin for the first time, type `prefix + I` (capital I) from within a Tmux
+   session, to install it. For updating the plugin at some point, the key combination is
+   `prefix + U` (capital U).
+
+## Screenshots
+
+<details>
+<summary>Night</summary>
+
+![Night screenshot](./screenshots/night.png)
+
+</details>
+
+<details>
+<summary>Moon</summary>
+
+![Moon screenshot](./screenshots/moon.png)
+
+</details>
+
+<details>
+<summary>Storm</summary>
+
+![Storm screenshot](./screenshots/storm.png)
+
+</details>
+
+<details>
+<summary>Day</summary>
+
+![Day screenshot](./screenshots/day.png)
+
+</details>
+
+## Thanks to
+
+- [tokyo-night-tmux](https://github.com/janoamaral/tokyo-night-tmux)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [rose-pine/tmux](https://github.com/rose-pine/tmux), for the plugin structure
