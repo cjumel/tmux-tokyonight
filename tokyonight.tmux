@@ -136,7 +136,7 @@ main() {
     window_text="#W"
 
     setw window-status-format "#[default] $window_icon $window_text $window_number  "
-    setw window-status-current-format "#[fg=${fg},bg=${bg_highlight}] $window_icon_current $window_text $window_number  "
+    setw window-status-current-format "#[fg=${fg},bg=${fg_gutter}] $window_icon_current $window_text $window_number  "
 
     # Call everything to action
     tmux "${tmux_commands[@]}"
